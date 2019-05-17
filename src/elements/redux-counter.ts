@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { render } from "~/src/utils/render";
 import { css } from "~/src/utils/css";
+import "./arrow-button";
 
 type State = {
   count: number;
@@ -36,9 +37,12 @@ export class ReduxCounter extends HTMLElement {
 
   renderHtml = () => html`
     <div>
-      <button @click="${this.onDecrementClick}">-</button>
+      <arrow-button type="top" @click="${this.onIncrementClick}"></arrow-button>
       <p>count: ${this.state.count}</p>
-      <button @click="${this.onIncrementClick}">+</button>
+      <arrow-button
+        type="bottom"
+        @click="${this.onDecrementClick}"
+      ></arrow-button>
     </div>
   `;
 }
